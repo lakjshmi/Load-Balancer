@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Load Balancer</title>
+
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aldrich&family=BBH+Bogle&family=Gabarito:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="app-title">LOAD Balancer</div>
+    <div class="tabs-container">
+      <div class="tab tab-left">Tasks</div>
+      <div class="tab tab-center">Courses</div>
+      <div class="tab tab-right">Ideas</div>
+    </div>
+    <div class="all-entries-list">
+      <div class="each-entry">
+        <div class="entry-name">Complete STRY09878230</div>
+        <div class="entry-date">25 December 2025</div>
+      </div>
+      <div class="each-entry">
+        <div class="entry-name">Have a word with Photography club</div>
+        <div class="entry-date">25 December 2025</div>
+      </div>
+      <div class="each-entry">
+        <div class="entry-name">Complete STRY09878230</div>
+        <div class="entry-date">25 December 2025</div>
+      </div>
+      <div class="each-entry">
+        <div class="entry-name">Have a word with Photography club</div>
+        <div class="entry-date">25 December 2025</div>
+      </div>
+      <div class="each-entry">
+        <div class="entry-name">Complete STRY09878230</div>
+        <div class="entry-date">25 December 2025</div>
+      </div>
+      <div class="each-entry">
+        <div class="entry-name">Have a word with Photography club</div>
+        <div class="entry-date">25 December 2025</div>
+      </div>
+    </div>
+    <button class="fab">
+      <span class="plus"></span>
+    </button>
+    <!-- OVERLAY + MODAL -->
+    <div class="overlay" id="overlay">
+      <div class="entry-modal">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" id="entryName" />
+        </div>
+
+        <div class="field">
+          <label>Start Date</label>
+          <div class="date-boxes start-date" id="startDateBoxes"></div>
+        </div>
+
+        <div class="field">
+          <label>Due</label>
+            <div class="date-boxes due-date" id="dueDateBoxes"></div>
+            <input type="date" id="dueDateInput" class="hidden-date-input" />        
+        </div>
+
+        <div class="field">
+          <label>Choose Category</label>
+
+          <div class="category-pills">
+            <div class="category-pill active">Task</div>
+            <div class="category-pill">Course</div>
+            <div class="category-pill">Idea</div>
+          </div>
+        </div>
+
+        <div class="done-pill-wrapper">
+  <div class="done-pill disabled" id="donePill">DONE</div>
+</div>
+
+
+      
+</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+body {
+  margin: 0;
+  background: #f4f4f4;
+}
+.app-title {
+  margin: 0;
+  color: #00a2ad;
+  margin-top: 35px; /* 👈 exactly 35px from top */
+  margin-top: 22px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 500;
+  font-family: "BBH Bogle", sans-serif;
+}
+
+.tabs-container {
+  position: relative;
+  height: 50px;
+  margin-top: 24px;
+  margin-bottom: 53px;
+}
+/* Base pill style */
+
+.tab {
+  position: absolute;
+  padding: 8px 20px;
+  border: 4px solid #00a2ad; /* 👈 4px stroke */
+  border-radius: 999px; /* pill shape */
+  font-size: 39px;
+  font-weight: 20;
+  font-family: "BBH Bogle", sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Exact positioning rules */
+.tab-left {
+  left: 300px;
+}
+
+.tab-right {
+  right: 300px;
+}
+
+.tab-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.all-entries-list {
+  margin-top: 32px;
+
+  /* 👇 exact constraints */
+  margin-left: 300px;
+  margin-right: 300px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card style */
+.each-entry {
+  padding: 20px 24px;
+  border-radius: 16px;
+
+  background: #fff;
+}
+
+/* Entry title */
+.entry-name {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  font-family: "Gabarito", sans-serif;
+}
+
+/* Entry date */
+.entry-date {
+  font-size: 25px;
+  font-family: "Gabarito", sans-serif;
+}
+.fab {
+  position: fixed;
+  bottom: 119px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #00a2ad;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+}
+
+/* Hidden state */
+.fab.hidden {
+  transform: translate(-50%, 220px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* PLUS SIGN */
+.plus {
+  position: relative;
+  width: 70px; /* horizontal length */
+  height: 8px; /* thickness */
+  background: #fff;
+  border-radius: 4px;
+}
+
+.plus::after {
+  content: "";
+  position: absolute;
+  width: 8px; /* thickness */
+  height: 70px; /* vertical length */
+  background: #fff;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+
+/* Black background overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8); /* 80% opacity */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* White modal box */
+.entry-modal {
+  position: relative;
+  width: 697px;
+  height: 697px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+/* Field layout */
+.field {
+  margin-bottom: 32px;
+}
+
+.field label {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 8px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+}
+/* Shared */
+.date-boxes {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.date-box {
+  width: 31px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "BBH Bogle", sans-serif;
+}
+
+/* Spacing */
+.space-9 {
+  margin-right: 9px;
+}
+.space-13 {
+  margin-right: 13px;
+}
+
+/* START DATE */
+/* START DATE */
+.start-date .date-box {
+  background: #d9d9d9;
+  border: 2px solid #d9d9d9;          /* 🔥 this was missing */
+}
+
+/* DUE DATE */
+.due-date .date-box {
+  background: transparent;
+  border: 2px solid #414040;
+}
+
+/* Hidden native input */
+
+.hidden-date-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.due-date-wrapper {
+  position: relative;
+  display: inline-block;
+  height: 35px;
+}
+
+.date-separator {
+  margin: 0 8px;
+  font-size: 18px;
+  font-weight: 300;
+  color: #000;
+}
+
+.field label {
+  display: block;
+  font-family: "BBH Bogle", sans-serif;
+  font-size: 29px;                    /* change as needed */
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+#entryName {
+    font-family: "Gabarito", sans-serif;
+   /* or Figma font */
+  font-size: 39px;                        /* adjust */
+  font-weight: 400;
+  color: #000;
+}
+.category-pills {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.category-pill {
+  padding: 10px 28px;
+  font-size: 30px;
+  font-family: "BBH Bogle", sans-serif;
+  border: 2px solid #00a2ad;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s ease;
+}
+
+/* Selected state */
+.category-pill.active {
+  background: #00a2ad;
+  color: #fff;
+}
+
+/* Hover feedback */
+.category-pill:hover {
+  background: rgba(0, 162, 173, 0.1);
+}
+
+/* Wrapper to position DONE relative to card */
+.done-pill-wrapper {
+  position: absolute;
+  bottom: 46px;               /* 👈 exactly 46px from card edge */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* DONE pill base */
+.done-pill {
+  padding: 10px 36px;
+  font-size: 30px;
+  font-family: "BBH Bogle", sans-serif;
+  border-radius: 999px;
+  border: 2px solid #d9d9d9;
+  background: #d9d9d9;
+  color: #d9d9d9;
+  opacity: 0.2;
+  cursor: not-allowed;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+/* Enabled state */
+.done-pill.enabled {
+  background: transparent;
+  border-color: #00a2ad;
+  color: #000;
+  opacity: 1;
+  cursor: pointer;
+}
