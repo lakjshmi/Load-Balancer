@@ -305,3 +305,30 @@ body {
   opacity: 1;
   cursor: pointer;
 }
+/* Active tab state */
+.tab.active {
+  background: #00a2ad;
+  color: #ffffff;
+}
+/* Modal close (X) button */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background: transparent;
+  border: none;
+
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: #000;
+  cursor: pointer;
+
+  font-family: "Gabarito", sans-serif;
+}
+
+.modal-close:hover {
+  opacity: 0.6;
+}
