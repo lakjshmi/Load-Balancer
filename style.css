@@ -290,7 +290,7 @@ body {
   font-size: 30px;
   font-family: "BBH Bogle", sans-serif;
   border: 2px solid #00a2ad;
-  border-radius: 999px;
+  border-radius: 5px;
   cursor: pointer;
   user-select: none;
   transition: all 0.25s ease;
@@ -304,7 +304,8 @@ body {
 
 /* Hover feedback */
 .category-pill:hover {
-  background: rgba(0, 162, 173, 0.1);
+  background: #00a2ad;
+  color:#fff;
 }
 
 /* Wrapper to position DONE relative to card */
@@ -320,10 +321,10 @@ body {
   padding: 10px 36px;
   font-size: 30px;
   font-family: "BBH Bogle", sans-serif;
-  border-radius: 999px;
+  border-radius: 5px;
   border: 2px solid #d9d9d9;
   background: #d9d9d9;
-  color: #d9d9d9;
+  color: #030303;
   opacity: 0.2;
   cursor: not-allowed;
   user-select: none;
