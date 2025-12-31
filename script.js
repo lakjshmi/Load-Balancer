@@ -251,13 +251,12 @@ function validateDates() {
   return true;
 }
 
-
 donePill.addEventListener("click", () => {
   if (!donePill.classList.contains("enabled")) return;
 
-   // 🔴 DATE VALIDATION HERE
+  // 🔴 DATE VALIDATION HERE
   if (!validateDates()) return;
-  
+
   const entry = {
     id: Date.now(),
     name: nameInput.value.trim(),
@@ -268,7 +267,7 @@ donePill.addEventListener("click", () => {
   const entries = getEntries();
   entries.push(entry);
   saveEntries(entries);
-
+  setActiveTab(null); // ✅ RESET TAB STATE
   renderEntries(); // re-render full list
 
   closeModal();
