@@ -236,9 +236,28 @@ function renderEntries(filterCategory = null) {
   });
 }
 
+function validateDates() {
+  const startDate = new Date(startInput.value);
+  const dueDate = new Date(dueInput.value);
+
+  // If either date is missing, skip this validation
+  if (!startInput.value || !dueInput.value) return true;
+
+  if (startDate > dueDate) {
+    alert("Start date cannot be after the due date.");
+    return false;
+  }
+
+  return true;
+}
+
+
 donePill.addEventListener("click", () => {
   if (!donePill.classList.contains("enabled")) return;
 
+   // 🔴 DATE VALIDATION HERE
+  if (!validateDates()) return;
+  
   const entry = {
     id: Date.now(),
     name: nameInput.value.trim(),
