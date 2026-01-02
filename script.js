@@ -8,7 +8,12 @@ tabClickSound.volume = 1; // adjust as needed
 
 const completeSound = new Audio("cheer.mp3"); // ✅ task completed
 const deleteSound = new Audio("wtf.mp3");
+const fabSound = new Audio("plop.m4a");
 
+fabSound.preload = "auto";
+fabSound.load(); // 🔥 force decode now
+
+fabSound.volume = 1;
 completeSound.volume = 1;
 deleteSound.volume = 1;
 
@@ -105,6 +110,8 @@ function createDateBoxes(containerId, dateStr) {
 /* ---------- OPEN MODAL ---------- */
 
 fab.addEventListener("click", () => {
+  fabSound.currentTime = 0;
+  fabSound.play();
   overlay.style.display = "flex";
 
   const today = new Date().toISOString().split("T")[0];
