@@ -2,6 +2,8 @@ let lastScrollY = window.scrollY;
 let scrollTimeout;
 let editingEntryId = null;
 let currentFilter = null; // null = all
+const tabClickSound = new Audio("trimmed.m4a");
+tabClickSound.volume = 1; // adjust as needed
 
 const fab = document.querySelector(".fab");
 const overlay = document.getElementById("overlay");
@@ -460,19 +462,27 @@ const courseTab = document.querySelector(".tab-center");
 const ideaTab = document.querySelector(".tab-right");
 const appTitle = document.querySelector(".app-title");
 
+function playTabSound() {
+  tabClickSound.currentTime = 0; // allows rapid taps
+  tabClickSound.play();
+}
+
 taskTab.addEventListener("click", () => {
+  playTabSound();
   setActiveTab(taskTab);
   currentFilter = "Task";
   renderEntries(currentFilter);
 });
 
 courseTab.addEventListener("click", () => {
+  playTabSound();
   setActiveTab(courseTab);
   currentFilter = "Course";
   renderEntries(currentFilter);
 });
 
 ideaTab.addEventListener("click", () => {
+  playTabSound();
   setActiveTab(ideaTab);
   currentFilter = "Idea";
   renderEntries(currentFilter);
