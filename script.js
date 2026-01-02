@@ -2,8 +2,15 @@ let lastScrollY = window.scrollY;
 let scrollTimeout;
 let editingEntryId = null;
 let currentFilter = null; // null = all
+
 const tabClickSound = new Audio("trimmed.m4a");
 tabClickSound.volume = 1; // adjust as needed
+
+const completeSound = new Audio("cheer.mp3"); // ✅ task completed
+const deleteSound = new Audio("wtf.mp3");
+
+completeSound.volume = 1;
+deleteSound.volume = 1;
 
 const fab = document.querySelector(".fab");
 const overlay = document.getElementById("overlay");
@@ -320,14 +327,20 @@ function toggleComplete(id) {
   if (index === -1) return;
 
   entries[index].completed = !entries[index].completed;
-
+  // 🔊 play cheer ONLY when marking complete
+  if (!wasCompleted && entries[index].completed) {
+    completeSound.currentTime = 0;
+    completeSound.play();
+  }
   saveEntries(entries);
   renderEntries(currentFilter);
 }
+
 function deleteEntry(id) {
   const confirmed = confirm("Delete this entry?");
   if (!confirmed) return;
-
+  deleteSound.currentTime = 0;
+  deleteSound.play();
   const entries = getEntries().filter((e) => e.id !== id);
   saveEntries(entries);
 
