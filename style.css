@@ -442,6 +442,10 @@ body {
   .entry-date {
     font-size: 16px;
   }
+  .each-entry {
+    touch-action: pan-y;
+  }
+
   .fab {
     width: 64px;
     height: 64px;
