@@ -406,92 +406,7 @@ body {
   opacity: 1;
   transform: translateY(-50%) scale(1);
 }
-@media (max-width: 768px) {
-  /* mobile styles go here */
-  .app-title {
-    font-size: 36px;
-    margin-top: 16px;
-  }
-  .tabs-container {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    height: auto;
-    margin: 20px 12px;
-  }
 
-  .tab {
-    position: static;
-    font-size: 20px;
-    padding: 6px 14px;
-    border-width: 2px;
-    box-shadow: -2px 6px 0 #008c95;
-  }
-
-  .tab-center {
-    transform: translateY(var(--press-y));
-  }
-  .all-entries-list {
-    margin: 16px;
-  }
-
-  .entry-name {
-    font-size: 20px;
-  }
-
-  .entry-date {
-    font-size: 16px;
-  }
-  .each-entry {
-    touch-action: pan-y;
-  }
-
-  .fab {
-    width: 64px;
-    height: 64px;
-    bottom: 24px;
-  }
-
-  .plus {
-    width: 36px;
-    height: 6px;
-  }
-
-  .plus::after {
-    width: 6px;
-    height: 36px;
-  }
-
-  .entry-modal {
-    width: calc(100vw - 32px);
-    height: auto;
-    max-height: calc(100vh - 32px);
-    padding: 20px;
-    overflow-y: auto;
-    padding-bottom: 100px; /* 👈 space for DONE */
-  }
-
-  .field label {
-    font-size: 18px;
-  }
-
-  #entryName {
-    font-size: 22px;
-  }
-
-  .category-pill {
-    font-size: 18px;
-    padding: 6px 18px;
-  }
-
-  .done-pill {
-    font-size: 20px;
-    padding: 8px 28px;
-  }
-  .overlay + .fab {
-    display: none;
-  }
-}
 .install-pill {
   position: fixed;
   bottom: 24px;
@@ -555,4 +470,111 @@ body {
 .clear-pill.hidden {
   opacity: 0;
   pointer-events: none;
+}
+/* 🔒 Hide floating UI when modal is open */
+body.modal-open .fab,
+body.modal-open .install-pill,
+body.modal-open .clear-pill {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+@media (max-width: 768px) {
+  /* mobile styles go here */
+
+  .clear-pill {
+    position: static;
+    font-size: 14px;
+    padding: 6px 14px;
+    box-shadow: -2px 5px 0 #014656;
+  }
+  .app-title {
+    font-size: 36px;
+    margin-top: 16px;
+  }
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    height: auto;
+    margin: 20px 12px;
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    position: static;
+    font-size: 20px;
+    padding: 6px 14px;
+    border-width: 2px;
+    box-shadow: -2px 6px 0 #008c95;
+  }
+
+  .tab-center {
+    transform: translateY(var(--press-y));
+  }
+  .all-entries-list {
+    margin: 16px;
+  }
+
+  .entry-name {
+    font-size: 20px;
+  }
+
+  .entry-date {
+    font-size: 16px;
+  }
+  .each-entry {
+    touch-action: pan-y;
+  }
+  .install-pill {
+    bottom: 104px; /* sits above FAB */
+    font-size: 16px;
+    padding: 10px 22px;
+    box-shadow: -2px 6px 0 #014656;
+  }
+
+  .fab {
+    width: 64px;
+    height: 64px;
+    bottom: 24px;
+  }
+
+  .plus {
+    width: 36px;
+    height: 6px;
+  }
+
+  .plus::after {
+    width: 6px;
+    height: 36px;
+  }
+
+  .entry-modal {
+    width: calc(100vw - 32px);
+    height: auto;
+    max-height: calc(100vh - 32px);
+    padding: 20px;
+    overflow-y: auto;
+    padding-bottom: 100px; /* 👈 space for DONE */
+  }
+
+  .field label {
+    font-size: 18px;
+  }
+
+  #entryName {
+    font-size: 22px;
+  }
+
+  .category-pill {
+    font-size: 18px;
+    padding: 6px 18px;
+  }
+
+  .done-pill {
+    font-size: 20px;
+    padding: 8px 28px;
+  }
+  
 }

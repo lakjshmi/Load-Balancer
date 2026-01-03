@@ -113,7 +113,7 @@ fab.addEventListener("click", () => {
   fabSound.currentTime = 0;
   fabSound.play();
   overlay.style.display = "flex";
-
+  document.body.classList.add("modal-open");
   const today = new Date().toISOString().split("T")[0];
 
   // START DATE (editable)
@@ -458,6 +458,7 @@ donePill.addEventListener("click", () => {
 
 function closeModal() {
   overlay.style.display = "none";
+  document.body.classList.remove("modal-open");
 
   nameInput.value = "";
   updateNameBackground();
