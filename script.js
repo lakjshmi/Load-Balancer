@@ -377,7 +377,6 @@ function openEditModal(entry) {
   // Category
   categoryPills.forEach((p) => {
     p.classList.toggle("active", p.textContent.trim() === entry.category);
-    document.getElementById("deletePill").style.display = "block";
   });
 
   selectedCategory = entry.category;
@@ -552,17 +551,36 @@ overlay.addEventListener("click", (e) => {
 //close when clicked on X on top of the modal
 closeModalBtn.addEventListener("click", closeModal);
 
-const deletePill = document.getElementById("deletePill");
+let deferredPrompt;
 
-deletePill.addEventListener("click", () => {
-  if (!editingEntryId) return;
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
 
-  const confirmed = confirm("Delete this entry?");
-  if (!confirmed) return;
+  const installPill = document.getElementById("installPill");
+  if (installPill) {
+    installPill.classList.remove("hidden");
+  }
+});
 
-  const entries = getEntries().filter((e) => e.id !== editingEntryId);
-  saveEntries(entries);
+document.addEventListener("DOMContentLoaded", () => {
+  const installPill = document.getElementById("installPill");
 
-  renderEntries(currentFilter);
-  closeModal();
+  if (!installPill) {
+    console.warn("Install pill not found in DOM");
+    return;
+  }
+
+  installPill.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+      installPill.classList.add("hidden");
+    }
+
+    deferredPrompt = null;
+  });
 });
