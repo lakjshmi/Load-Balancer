@@ -1,7 +1,7 @@
 {
-  "name": "My Planner PWA",
-  "short_name": "Planner",
-  "start_url": "/",
+  "name": "Load Balancer",
+  "short_name": "Load Balancer",
+  "start_url": "https://lakjshmi.github.io/Load-Balancer/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
