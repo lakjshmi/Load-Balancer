@@ -244,8 +244,24 @@ function saveEntries(entries) {
   localStorage.setItem("entries", JSON.stringify(entries));
 }
 function createEntryElement(entry) {
+  // 🔹 OUTER CONTAINER
+  const container = document.createElement("div");
+  container.className = "entry-container";
+
+  // 🔹 BACKGROUNDS
+  const bgDelete = document.createElement("div");
+  bgDelete.className = "entry-bg bg-delete";
+  bgDelete.textContent = "DELETE";
+
+  const bgDone = document.createElement("div");
+  bgDone.className = "entry-bg bg-done";
+  bgDone.textContent = "DONE";
+
+  // 🔹 CARD
   const wrapper = document.createElement("div");
   wrapper.className = "each-entry";
+  wrapper.dataset.category = entry.category;
+
   wrapper.dataset.category = entry.category; // for future tab filtering
 
   if (entry.completed) {
@@ -285,6 +301,17 @@ function createEntryElement(entry) {
     if (Math.abs(currentX) > 120) return;
 
     wrapper.style.transform = `translateX(${currentX}px)`;
+
+    if (currentX > 20) {
+      bgDelete.style.opacity = 1;
+      bgDone.style.opacity = 0;
+    } else if (currentX < -20) {
+      bgDone.style.opacity = 1;
+      bgDelete.style.opacity = 0;
+    } else {
+      bgDelete.style.opacity = 0;
+      bgDone.style.opacity = 0;
+    }
   });
 
   wrapper.addEventListener("pointerup", () => {
@@ -302,12 +329,18 @@ function createEntryElement(entry) {
     }
 
     wrapper.style.transform = "translateX(0)";
+    bgDelete.style.opacity = 0;
+    bgDone.style.opacity = 0;
+
     isDragging = false;
     startX = 0;
     currentX = 0;
   });
   wrapper.addEventListener("pointercancel", () => {
     wrapper.style.transform = "translateX(0)";
+    bgDelete.style.opacity = 0;
+    bgDone.style.opacity = 0;
+
     isDragging = false;
   });
 
@@ -326,7 +359,11 @@ function createEntryElement(entry) {
     clickTimer = null;
     openEditModal(entry);
   });
-  return wrapper;
+  container.appendChild(bgDelete);
+  container.appendChild(bgDone);
+  container.appendChild(wrapper);
+
+  return container;
 }
 function toggleComplete(id) {
   const entries = getEntries();
@@ -620,4 +657,15 @@ clearBtn.addEventListener("click", () => {
 
   saveEntries(remaining);
   renderEntries(currentFilter); // updates list and button visibility
+});
+const infoBtn = document.getElementById("infoBtn");
+const infoPopup = document.getElementById("infoPopup");
+
+infoBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  infoPopup.classList.toggle("hidden");
+});
+
+document.addEventListener("click", () => {
+  infoPopup.classList.add("hidden");
 });

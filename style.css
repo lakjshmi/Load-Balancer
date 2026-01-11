@@ -578,3 +578,102 @@ body.modal-open .clear-pill {
   }
   
 }
+/* ===============================
+   SWIPE BACKGROUND TEXT
+   =============================== */
+
+.entry-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background base */
+.entry-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  font-family: "BBH Bogle", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* DELETE (left side) */
+.bg-delete {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: 16px;
+  color: #ff4d4d;
+}
+
+/* DONE (right side) */
+.bg-done {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: 16px;
+  color: #2ecc71;
+}
+/* ===============================
+   INFO BUTTON (TOP RIGHT)
+   =============================== */
+
+.info-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid #00a2ad;
+  background: transparent;
+  color: #00a2ad;
+  font-family: "Gabarito", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 2000;
+  opacity: 0.7;
+}
+
+.info-btn:hover {
+  opacity: 1;
+}
+
+/* ===============================
+   INFO POPUP
+   =============================== */
+
+.info-popup {
+  position: fixed;
+  top: 52px;
+  right: 14px;
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: "Gabarito", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #00a2ad;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+}
+
+.info-popup p {
+  margin: 4px 0;
+  opacity: 5;
+}
+
+.info-popup b {
+  font-weight: 600;
+}
+
+/* utility */
+.hidden {
+  display: none;
+}
